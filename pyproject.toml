@@ -1,0 +1,43 @@
+[project]
+name = "ai_rate_limiter"
+version = "0.1.0"
+description = "A reusable AI Rate Limiter for FastAPI apps with per-user and per-API-key sliding window limits, Redis backend, and in-memory fallback."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "AI Rate Limiter Devs"}
+]
+keywords = ["fastapi", "rate-limiting", "middleware", "redis", "api"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: FastAPI",
+]
+dependencies = [
+    "fastapi>=0.100",
+    "pydantic>=2.0",
+    "redis>=5.0"
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "httpx>=0.24",
+    "fakeredis>=2.0"
+]
+dev = [
+    "uvicorn>=0.20"
+]
